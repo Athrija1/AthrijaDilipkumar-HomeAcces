@@ -6,12 +6,12 @@ public class Enemylvl : MonoBehaviour
 {
     public Transform startPos;
         // For trigger collisions (passing through/zones)
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
                 Debug.Log("triggered");
-            if (other.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player"))
             {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             other.gameObject.transform.position = startPos.position;
             }
         }
