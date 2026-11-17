@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
-
 {
+    public GameObject player;
+    public NewLevel spawns;
+
+    private void Start()
+    {
+        spawns = GameObject.FindGameObjectWithTag("GameManager").GetComponent<NewLevel>();
+    }
     public void OnCollisionEnter(Collision collision)
     {
      
@@ -16,8 +22,9 @@ public class PlayerCollision : MonoBehaviour
     }
     void Die()
     {
-
+        player.transform.position = spawns.spawn1.transform.position;
         Debug.Log("Player Died!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }

@@ -8,7 +8,10 @@ public class NewLevel : MonoBehaviour
     public int itemsCollected = 0;
     public int itemsNeeded = 8;
     public GameObject player;
+    public GameObject spawn1;
     public GameObject spawn2;
+    public GameObject houseLevel;
+
 
         public void AddItem()
         {
@@ -18,8 +21,11 @@ public class NewLevel : MonoBehaviour
 
         if (itemsCollected >= itemsNeeded)
             {
-                //LoadNextLevel();
-                player.transform.position = spawn2.transform.position;
+            //LoadNextLevel();
+            houseLevel.SetActive(false);
+            player.transform.position = spawn1.transform.position;
+                itemsCollected = 0;
+                spawn1 = spawn2;
             }
         }
 
