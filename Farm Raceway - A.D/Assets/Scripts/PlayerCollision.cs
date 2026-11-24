@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         spawns = GameObject.FindGameObjectWithTag("GameManager").GetComponent<NewLevel>();
     }
     public void OnCollisionEnter(Collision collision)
